@@ -39,9 +39,13 @@
         <div>
             <div class="card-faded py-20">
                 <div class="my-5">
-                    <img id="photo" class="w-56 h-40 object-cover mb-3 rounded-lg shadow-lg mx-auto"
-                        src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}&background=random"
-                        alt="Bonnie image" />
+                    @if ($user->image)
+                        <div x-if="preview">
+                            <img id="photo" wire:ignore class="w-56 h-40 object-cover mb-3 rounded-lg shadow-lg mx-auto" src="{{ Storage::url($user->image) }}" alt="{{ $user->name }} Image" />
+                        </div>
+                    @else 
+                        <img id="photo" wire:ignore class="w-56 h-40 object-cover mb-3 rounded-lg shadow-lg mx-auto" src="https://ui-avatars.com/api/?name={{ $user->name }}&background=random" alt="Bonnie image" />
+                    @endif   
                 </div>
                 <h2 class="text-center" my-5>{{ $user->name }}</h2>
                 <table class="w-full items-center table-auto">

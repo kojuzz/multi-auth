@@ -20,7 +20,7 @@
                 <span class="sr-only">Toggle sidebar</span>
             </button>
             <a href="{{ route('admin.dashboard') }}" class="flex items-center justify-between mr-4">
-                {{-- <img src="https://flowbite.s3.amazonaws.com/logo.svg" class="mr-3 h-8" alt="Flowbite Logo" /> --}}
+                <img src="{{ asset('images/logo_c.png') }}" class="mr-3 h-8" alt="Flowbite Logo" />
                 <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Admin Panel</span>
             </a>
         </div>
@@ -32,9 +32,11 @@
                 class="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
                 id="user-menu-button" aria-expanded="false" data-dropdown-toggle="dropdown">
                 <span class="sr-only">Open user menu</span>
-                <img class="w-8 h-8 rounded-full"
-                    src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gough.png"
-                    alt="user photo" />
+                @if (Auth::user()->image)
+                    <img class="w-8 h-8 rounded-full" src="{{ asset('storage/' . Auth::user()->image) }}" alt="{{ Auth::user()->name }} Image" />
+                @else
+                    <img class="w-8 h-8 rounded-full" src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}&background=random" alt="{{ Auth::user()->name }} Image" />
+                @endif
             </button>
 
             {{-- User Menu Dropdown --}}
