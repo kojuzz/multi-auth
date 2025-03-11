@@ -1,0 +1,69 @@
+@import 'tailwindcss';
+@import "flowbite/src/themes/default";
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source "../**/*.blade.php";
+@source "../**/*.js";
+@source "../**/*.vue";
+@source "../node_modules/flowbite";
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+@plugin "flowbite/plugin";
+
+@layer base {
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    textarea {
+        @apply 
+            border 
+            rounded-lg 
+            w-full 
+            p-2.5 
+            border-gray-300 
+            text-gray-900 
+            dark:bg-gray-700 
+            dark:border-gray-600 
+            dark:text-white;
+    }
+
+    label {
+        @apply block mb-2 text-sm font-medium text-gray-900 dark:text-white;
+    }
+    h1 {
+        @apply text-2xl font-semibold;
+    }
+    h2 {
+        @apply text-lg font-semibold;
+    }
+    tr {
+        @apply h-10;
+    }
+}
+
+@layer components {
+    .card {
+        @apply rounded-lg shadow-md overflow-hidden py-4 px-10 bg-white;
+    }
+    .card-faded {
+        @apply rounded-lg shadow-md overflow-hidden py-4 px-10 bg-gray-50;
+    }
+    .btn-primary {
+        @apply w-full p-2.5 border rounded-lg cursor-pointer bg-blue-500 text-white hover:bg-blue-600;
+    }
+
+    /* Side Link */
+    .side-link-primary {
+        @apply flex items-center p-2 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700;
+    }
+    .side-link-secondary {
+        @apply flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700;
+    }
+    .side-link-accent {
+        @apply flex items-center p-2 pl-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700;
+    }
+}
