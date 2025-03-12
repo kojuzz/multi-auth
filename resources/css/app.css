@@ -18,19 +18,18 @@
     input[type="text"],
     input[type="email"],
     input[type="password"],
-    textarea {
+    textarea, select {
         @apply 
             border 
             rounded-lg 
             w-full 
             p-2.5 
-            border-gray-300 
+            border-gray-300
             text-gray-900 
             dark:bg-gray-700 
             dark:border-gray-600 
             dark:text-white;
-    }
-
+    }   
     label {
         @apply block mb-2 text-sm font-medium text-gray-900 dark:text-white;
     }
@@ -47,15 +46,25 @@
 
 @layer components {
     .card {
-        @apply rounded-lg shadow-md overflow-hidden py-4 px-10 bg-white;
+        @apply rounded-lg shadow-md overflow-hidden py-10 px-10 bg-white;
     }
     .card-faded {
-        @apply rounded-lg shadow-md overflow-hidden py-4 px-10 bg-gray-50;
+        @apply rounded-lg shadow-md overflow-hidden py-10 px-10 bg-gray-50;
     }
     .btn-primary {
         @apply w-full p-2.5 border rounded-lg cursor-pointer bg-blue-500 text-white hover:bg-blue-600;
     }
+    .btn-secondary {
+        @apply w-full p-2.5 border rounded-lg cursor-pointer bg-gray-500 text-white hover:bg-gray-600;
+    }
+    .error {
+        @apply text-sm text-red-500;
+    }
 
+    /* title */
+    .page-title {
+        @apply flex py-3 mb-5 justify-center items-center text-2xl font-bold uppercase text-gray-500 dark:text-gray-400;
+    }
     /* Side Link */
     .side-link-primary {
         @apply flex items-center p-2 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700;

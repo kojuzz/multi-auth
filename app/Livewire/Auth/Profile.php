@@ -51,7 +51,7 @@ class Profile extends Component
             // Set image name
             $file = $this->image;
             $extension = $file->getClientOriginalExtension();
-            $filename = 'post_image_'.date("Ymd_His").'_00'.Auth::user()->id.'.'.$extension;
+            $filename = 'profile_image_'.date("Y_m_d_H_i_s").'__00'.Auth::user()->id.'.'.$extension;
 
             // comporess image
             $manager = new ImageManager(new Driver());

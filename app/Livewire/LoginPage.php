@@ -25,13 +25,24 @@ class LoginPage extends Component
                 session()->flash('success', 'Welcome to super dashboard');
                 $this->showAlert = true;
                 return $this->redirect(route('super.dashboard'), navigate: true);   // reload ဖျောက်ရေးနည်း
-            } elseif (Auth::user()->role == 'admin') {
-                session()->flash('success', 'Welcome to admin dashboard');
-                $this->showAlert = true;
-                return $this->redirect(route('admin.dashboard'), navigate: true);
             } 
-            else {
-                return $this->redirect(route('home'), navigate: true);
+            elseif (Auth::user()->role == 'admin') {
+                if (Auth::user()->status == 1) {
+                    session()->flash('success', 'Welcome to admin dashboard');
+                    $this->showAlert = true;
+                    return $this->redirect(route('admin.dashboard'), navigate: true);
+                } else {
+                    Auth::logout();
+                    $this->reset(['email', 'password', 'remember']);
+                    session()->flash('delete', 'Your account is disabled. Please contact to admin.');
+                    $this->showAlert = true;
+                    return $this->redirect(route('login'), navigate: true);
+                }
+            } 
+            elseif (Auth::user()->role == 'user') {
+                Auth::logout();
+                $this->reset(['email', 'password', 'remember']);
+                session()->flash('delete', 'User role cannot access yet.');
             }
         } else {
             $this->addError('email', 'These credentials do not match our records.');

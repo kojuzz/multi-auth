@@ -1,10 +1,10 @@
 <main class="p-4 md:ml-64 h-auto pt-20">
     <x-message/>
-
+    <h1 class="page-title">Edit Profile</h1>
     <div class="grid grid-cols-1 lg:grid-cols-2  gap-4 mb-4">
         <div>
-            <div class="card py-20">
-                <h1 class="text-center mb-10">Edit Profile</h1>
+            <div class="card">
+                <h1 class="text-center mb-10">Edit Information</h1>
                 <form wire:submit.prevent="update" class="px-6" enctype="multipart/form-data">
 
                     {{-- Name --}}
@@ -37,7 +37,7 @@
                     {{-- Address --}}
                     <div class="my-5">
                         <label for="address">Address</label>
-                        <textarea class="rounded-lg" wire:model="address" id="address"></textarea>
+                        <textarea class="rounded-lg border-gray-300" wire:model="address" id="address"></textarea>
                         @error("address")
                             <span class="text-red-500">{{ $message }}</span>
                         @enderror
@@ -62,8 +62,8 @@
             </div>
         </div>
         <div>
-            <div class="card-faded py-20">
-                <div class="my-5" >
+            <div class="card-faded">
+                <div class="my-5">
                     @if ($user->image)
                         <div x-if="preview">
                             <img id="photo" wire:ignore class="w-56 h-40 object-cover mb-3 rounded-lg shadow-lg mx-auto" src="{{ Storage::url($user->image) }}" alt="{{ $user->name }} Image" />
