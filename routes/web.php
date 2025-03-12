@@ -21,9 +21,11 @@ Route::group(['middleware' => 'auth'], function () {
     require __DIR__ . '/admin.php';
 
     Route::get('logout', function () {
+        $darkMode = session('dark_mode', false);
         Auth::logout();
         session()->invalidate();
         session()->regenerateToken();
+        session(['dark_mode' => $darkMode]);
         return redirect()->route('home');
     })->name('logout');
 });

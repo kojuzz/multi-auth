@@ -43,10 +43,10 @@
                 </ul>
             </li>
         </ul>
-        
+
         <ul class="pt-5 mt-5 space-y-2 border-t border-gray-200 dark:border-gray-700">
             <li>
-                <a href="{{ route('home') }}" class="side-link-secondary group">
+                <a wire:navigate href="{{ route('home') }}" class="side-link-secondary group">
                     <x-svg icon="side_home" />
                     <span class="ml-3">Home</span>
                 </a>

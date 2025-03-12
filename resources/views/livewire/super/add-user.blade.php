@@ -54,8 +54,8 @@
             </div>
         </div>
         <div class="p-10">
-            <h1 class="text-3xl uppercase font-bold text-center text-gray-500">Add More Users</h1>
-            <div class="text-gray-500 pt-4 md:pl-10 space-y-2">
+            <h1 class="text-3xl uppercase font-bold text-center text-gray-500 dark:text-gray-100">Add More Users</h1>
+            <div class="pt-4 md:pl-10 space-y-2">
                 <p>Name : {{ $name }}</p>
                 <p>Email : {{ $email }}</p>
             </div>

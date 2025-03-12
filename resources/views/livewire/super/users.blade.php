@@ -39,12 +39,12 @@
                         {{-- Status --}}
                         <td class="px-6 py-4 {{ $user->status == 1 ? 'text-highlight' : 'text-accent' }}">
                             @if ($user->status == 1)
-                                <span class="flex gap-1">
+                                <span class="flex gap-1 text-gray-500">
                                     <x-svg icon="checked" />
                                     Enabled
                                 </span>
                             @else
-                                <span class="flex gap-1">
+                                <span class="flex gap-1 font-bold uppercase">
                                     <x-svg icon="disable" />
                                     Disabled
                                 </span>
@@ -52,7 +52,7 @@
                         </td>
                                         
                         {{-- Role --}}
-                        <td class="px-6 py-4 text-accent">
+                        <td class="px-6 py-4 text-accent capitalize">
                             {{ $user->role }}
                         </td>
 

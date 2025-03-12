@@ -21,14 +21,14 @@
             </button>
             <a href="{{ route('super.dashboard') }}" class="flex items-center justify-between mr-4">
                 <img src="{{ asset('images/logo_c.png') }}" class="mr-3 h-8" alt="Flowbite Logo" />
-                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Admin Panel</span>
+                {{-- <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Admin Panel</span> --}}
             </a>
         </div>
 
         <div class="flex items-center lg:order-2">
+            @livewire('partials.dark-mode-toggle')
             {{-- <x-super.notification /> --}}
             <x-super.application />
-
             {{-- User Menu --}}
             <button type="button"
                 class="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"

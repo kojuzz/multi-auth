@@ -25,14 +25,14 @@
                 <nav class="flex items-center justify-end gap-4">
                     @auth
                         @if (Auth::user()->role == 'super')
-                            <a
+                            <a wire:navigate
                                 href="{{ route('super.dashboard') }}"
                                 class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
                                 >
                                 {{ Auth::user()->name }}&#39;s Dashboard
                             </a>
                         @elseif (Auth::user()->role == 'admin')
-                        <a
+                        <a wire:navigate
                             href="{{ route('admin.dashboard') }}"
                             class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
                             >

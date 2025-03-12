@@ -14,7 +14,12 @@
 }
 @plugin "flowbite/plugin";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
+    body, p {
+        @apply text-gray-800 dark:text-gray-100;
+    }
     input[type="text"],
     input[type="email"],
     input[type="password"],
@@ -46,16 +51,16 @@
 
 @layer components {
     .card {
-        @apply rounded-lg shadow-md overflow-hidden py-10 px-10 bg-white;
+        @apply rounded-lg shadow-md overflow-hidden py-10 px-10 bg-white dark:bg-gray-800 dark:border-gray-700;
     }
     .card-faded {
-        @apply rounded-lg shadow-md overflow-hidden py-10 px-10 bg-gray-50;
+        @apply rounded-lg shadow-md overflow-hidden py-10 px-10 bg-gray-50 dark:bg-gray-900;
     }
     .btn-primary {
-        @apply w-full p-2.5 border rounded-lg cursor-pointer bg-blue-500 text-white hover:bg-blue-600;
+        @apply w-full p-2.5 rounded-lg cursor-pointer bg-blue-500 text-white hover:bg-blue-600 dark:bg-blue-300 dark:text-gray-800 dark:hover:bg-blue-200;
     }
     .btn-secondary {
-        @apply w-full p-2.5 border rounded-lg cursor-pointer bg-gray-500 text-white hover:bg-gray-600;
+        @apply w-full p-2.5 rounded-lg cursor-pointer bg-gray-500 text-white hover:bg-gray-600 dark:bg-gray-300 dark:text-gray-800 dark:hover:bg-gray-200;
     }
     .error {
         @apply text-sm text-red-500;
@@ -75,4 +80,7 @@
     .side-link-accent {
         @apply flex items-center p-2 pl-11 w-full text-base font-medium text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700;
     }
+    .text-link {
+        @apply font-medium text-blue-400 hover:underline;
+    }    
 }
