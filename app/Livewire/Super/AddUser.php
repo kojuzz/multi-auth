@@ -4,8 +4,10 @@ namespace App\Livewire\Super;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
+#[Title('Add User')]
 class AddUser extends Component
 {
     public $showAlert = false;

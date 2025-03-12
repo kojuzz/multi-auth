@@ -7,7 +7,7 @@ use Tests\TestCase;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Livewire;
-use App\Livewire\LoginPage;
+use App\Livewire\Login;
 
 class UserAuthTest extends TestCase
 {
@@ -21,7 +21,7 @@ class UserAuthTest extends TestCase
             'role' => 'super',
         ]);
 
-        Livewire::test(LoginPage::class)
+        Livewire::test(Login::class)
             ->set('email', 'super@example.com')
             ->set('password', 'password123')
             ->call('login')
@@ -38,7 +38,7 @@ class UserAuthTest extends TestCase
             'role' => 'admin',
         ]);
 
-        Livewire::test(LoginPage::class)
+        Livewire::test(Login::class)
             ->set('email', 'admin@example.com')
             ->set('password', 'password123')
             ->call('login')
@@ -49,7 +49,7 @@ class UserAuthTest extends TestCase
 
     public function test_user_cannot_login_with_invalid_credentials()
     {
-        Livewire::test(LoginPage::class)
+        Livewire::test(Login::class)
             ->set('email', 'user@example.com')
             ->set('password', 'wrongpassword')
             ->call('login')

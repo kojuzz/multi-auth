@@ -4,8 +4,10 @@ namespace App\Livewire\Auth;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
+#[Title('Change Password')]
 class Password extends Component
 {
     public $showAlert = false;

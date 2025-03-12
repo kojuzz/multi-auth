@@ -3,8 +3,10 @@
 namespace App\Livewire\Super;
 
 use App\Models\User;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
+#[Title('Manage Users')]
 class Users extends Component
 {
     public $showAlert = true;

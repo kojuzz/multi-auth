@@ -8,8 +8,10 @@ use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Drivers\Gd\Driver;
 use Intervention\Image\ImageManager;
 use Livewire\Component;
+use Livewire\Attributes\Title;
 use Livewire\Features\SupportFileUploads\WithFileUploads;
 
+#[Title('Edit Profile')]
 class Profile extends Component
 {
     use WithFileUploads;

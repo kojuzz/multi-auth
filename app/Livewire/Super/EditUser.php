@@ -4,8 +4,10 @@ namespace App\Livewire\Super;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
+#[Title('Edit User')]
 class EditUser extends Component
 {
     public $showAlert = false;

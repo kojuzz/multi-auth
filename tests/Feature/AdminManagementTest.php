@@ -3,7 +3,6 @@
 namespace Tests\Feature;
 
 use App\Livewire\Auth\Profile;
-use App\Livewire\LoginPage;
 use App\Livewire\Super\AddUser;
 use App\Livewire\Super\EditUser;
 use App\Models\User;
@@ -67,8 +66,8 @@ class AdminManagementTest extends TestCase
     {
         $superUser = User::factory()->create(['role' => 'super']);
         $admin = User::factory()->create(['role' => 'admin', 'status' => 1]); // ✅ Start as Active (1)
-
-        $this->actingAs($superUser);
+        $this->actingAs(User::find($superUser->id));
+        // $this->actingAs($superUser);
 
         // ✅ First Call: Expect 1 → 0
         Livewire::test(EditUser::class, ['id' => $admin->id])
@@ -84,12 +83,13 @@ class AdminManagementTest extends TestCase
 
         $this->assertEquals(1, $admin->fresh()->status); // ✅ Ensure status is now 1
     }
-    
+
     public function test_admin_cannot_add_another_admin_or_super_user()
     {
         // Super user အနေနဲ့ Login ဝင်ပြီး
-        $admin = User::factory()->create(['role' => 'admin']);
-        $this->actingAs($admin);
+        $admin = User::factory()->create(['role' => 'admin']);        
+        $this->actingAs(User::find($admin->id));
+        // $this->actingAs($admin);
 
         Livewire::test(AddUser::class)
             ->set('name', 'Unauthorized Admin')
