@@ -32,7 +32,7 @@ class EditUser extends Component
     public function status() {
         $this->user->status = !$this->user->status;
         $this->user->save();
-        session()->flash('update', 'User Stateus Updated Successfully.');
+        session()->flash('update', 'User Status Updated Successfully.');
         $this->showAlert = true;
         return $this->redirect(route('super.users'), navigate: true);
     }

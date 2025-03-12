@@ -3,13 +3,21 @@
 namespace App\Livewire\Super;
 
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class AddUser extends Component
 {
     public $showAlert = false;
     public $name, $email, $password, $role;
+    
     public function store() {
+
+        // Restrict to super users only (from test error)
+        if (Auth::user()->role !== 'super') {
+            abort(403, 'Unauthorized action.');
+        }
+
         $fields = $this->validate([
             'name' => 'required',
             'email' => 'required',
