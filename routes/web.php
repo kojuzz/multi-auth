@@ -2,7 +2,7 @@
 
 use App\Livewire\Auth\Password;
 use App\Livewire\Auth\Profile;
-use App\Livewire\LoginPage;
+use App\Livewire\Login;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -10,7 +10,7 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('login', LoginPage::class)->name('login')->middleware('guest');
+Route::get('login', Login::class)->name('login')->middleware('guest');
 
 Route::group(['middleware' => 'auth'], function () {
     

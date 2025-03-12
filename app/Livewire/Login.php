@@ -7,7 +7,7 @@ use Livewire\Attributes\Title;
 use Livewire\Component;
 
 #[Title('Login')]
-class LoginPage extends Component
+class Login extends Component
 {
     public $showAlert = true;
     public $email;
@@ -54,6 +54,6 @@ class LoginPage extends Component
 
     public function render()
     {
-        return view('livewire.login-page');
+        return view('livewire.login');
     }
 }

@@ -34,8 +34,8 @@
                 class="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
                 id="user-menu-button" aria-expanded="false" data-dropdown-toggle="dropdown">
                 <span class="sr-only">Open user menu</span>
-                @if (Auth::user()->image)
-                    <img class="w-8 h-8 rounded-full" src="{{ asset('storage/' . Auth::user()->image) }}" alt="{{ Auth::user()->name }} Image" />
+                @if (Auth::user()->image && Storage::disk('space')->exists(Auth::user()->image))
+                    <img class="w-8 h-8 rounded-full" src="{{ Storage::disk('space')->url(Auth::user()->image) }}" alt="{{ Auth::user()->name }} Image" />
                 @else
                     <img class="w-8 h-8 rounded-full" src="https://ui-avatars.com/api/?name={{ Auth::user()->name }}&background=random" alt="{{ Auth::user()->name }} Image" />
                 @endif

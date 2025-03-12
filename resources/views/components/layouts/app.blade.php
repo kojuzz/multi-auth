@@ -10,8 +10,9 @@
         @livewireStyles
     </head>
 
-    <body>
-        <div class="antialiased bg-gray-50 dark:bg-gray-900 h-screen">
+    <body class="antialiased">
+
+        <div class="bg-gray-50 dark:bg-gray-900 h-screen">
             @if (Auth::user() && Auth::user()->role == "super")
                 @livewire("partials.super-navbar")
                 @livewire("partials.super-sidebar")
@@ -21,6 +22,7 @@
             @endif
             {{ $slot }}
         </div>
+        
         @livewireScripts
         @yield('scripts')
     </body>

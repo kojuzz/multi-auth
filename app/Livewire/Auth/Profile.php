@@ -44,8 +44,9 @@ class Profile extends Component
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
             // Delete old Image
-            if ($this->user->image && Storage::disk('public')->exists($this->user->image)) {
-                Storage::disk('public')->delete($this->user->image);
+            if ($this->user->image && Storage::disk('space')->exists($this->user->image)) {
+                // Storage::disk('public')->delete($this->user->image);
+                Storage::disk('space')->delete($this->user->image);
             }
 
             // Set image name
@@ -60,7 +61,8 @@ class Profile extends Component
 
             // Set image path and Store image
             $path = "user_images/". $filename;
-            Storage::disk('public')->put($path, (string) $encodedImage, 'public'); 
+            // Storage::disk('public')->put($path, (string) $encodedImage, 'public'); 
+            Storage::disk('space')->put($path, (string) $encodedImage, 'public');
 
             $fields['image'] = $path;
         } else {
