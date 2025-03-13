@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import "flowbite/src/themes/default";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -9,16 +10,17 @@
 @source "../node_modules/flowbite";
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    --font-sans: 'Noto Sans Myanmar', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
 @plugin "flowbite/plugin";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @layer base {
     body, p {
-        @apply text-gray-800 dark:text-gray-100;
+        @apply font-sans text-gray-800 dark:text-gray-100;
     }
     input[type="text"],
     input[type="email"],
@@ -39,10 +41,10 @@
         @apply block mb-2 text-sm font-medium text-gray-900 dark:text-white;
     }
     h1 {
-        @apply text-2xl font-semibold;
+        @apply font-sans text-2xl font-semibold;
     }
     h2 {
-        @apply text-lg font-semibold;
+        @apply font-sans text-lg font-semibold;
     }
     tr {
         @apply h-10;
@@ -68,7 +70,7 @@
 
     /* title */
     .page-title {
-        @apply flex py-3 mb-5 justify-center items-center text-2xl font-bold uppercase text-gray-500 dark:text-gray-400;
+        @apply flex font-sans py-3 mb-5 justify-center items-center text-2xl font-bold uppercase text-gray-500 dark:text-gray-400;
     }
     /* Side Link */
     .side-link-primary {

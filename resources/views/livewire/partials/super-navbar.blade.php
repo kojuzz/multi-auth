@@ -28,6 +28,7 @@
         <div class="flex items-center lg:order-2">
             @livewire('partials.dark-mode-toggle')
             {{-- <x-super.notification /> --}}
+            @livewire('language-switcher')
             <x-super.application />
             {{-- User Menu --}}
             <button type="button"
